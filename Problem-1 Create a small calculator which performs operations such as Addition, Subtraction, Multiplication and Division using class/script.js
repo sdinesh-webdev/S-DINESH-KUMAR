@@ -1,4 +1,4 @@
-// Calculator class that handles all operations
+
 class Calculator {
   constructor() {
     // Get input elements
