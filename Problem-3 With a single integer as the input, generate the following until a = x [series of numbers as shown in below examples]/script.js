@@ -1,27 +1,31 @@
 function generateSeries() {
-  // Get input value and convert to num
-  let input = parseInt(document.getElementById("inputNumber").value);
+  // Step 1: Get the number from input box
+  let userNumber = document.getElementById("inputNumber").value;
 
-  // Check for valid input
-  if (isNaN(input) || input < 1) {
+  // Step 2: Convert text to number
+  let number = Number(userNumber);
+
+  // Step 3: Check if it's a valid number
+  if (number < 1) {
     document.getElementById("result").textContent =
-      "Please enter a positive number";
+      "Please enter a number bigger than 0";
     return;
   }
 
-  // If input is even, reduce it by 1
-  if (input % 2 === 0) {
-    input = input - 1;
+  // Step 4: If it's an even number, make it odd by subtracting 1
+  if (number % 2 == 0) {
+    number = number - 1;
   }
 
-  // Create an array to store the series
-  let series = [];
+  // Step 5: Create empty list to store odd numbers
+  let oddNumbers = [];
 
-  // Generate odd numbers from 1 to input
-  for (let i = 1; i <= input; i++) {
-    series.push(2 * i - 1);
+  // Step 6: Add odd numbers one by one
+  for (let i = 1; i <= number; i++) {
+    let oddNumber = 2 * i - 1; // Formula to get odd numbers: 2×i - 1
+    oddNumbers.push(oddNumber);
   }
 
-  // Display the result
-  document.getElementById("result").textContent = series.join(", ");
+  // Step 7: Show the result with commas between numbers
+  document.getElementById("result").textContent = oddNumbers.join(", ");
 }
